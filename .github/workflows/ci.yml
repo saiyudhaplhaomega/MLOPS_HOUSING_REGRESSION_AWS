@@ -51,8 +51,8 @@ jobs:
       - name: Deploy housing-api-service
         run: |
           aws ecs update-service \
-            --cluster housing-api-cluster-ecs \
-            --service housing-api-service \
+            --cluster gifted-turtle-q2yqcz \
+            --service housing-api-service-service-357gkge9 \
             --force-new-deployment
 
       # Deploy to ECS - Streamlit
@@ -60,5 +60,5 @@ jobs:
         run: |
           aws ecs update-service \
             --cluster gifted-turtle-q2yqcz \
-            --service housing-streamlit-service \
+            --service housing-streamlit-service-service-llg4490g \
             --force-new-deployment
