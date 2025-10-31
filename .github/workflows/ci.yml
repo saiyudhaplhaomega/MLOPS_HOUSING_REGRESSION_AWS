@@ -46,14 +46,7 @@ jobs:
 
           docker tag $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG $ECR_REGISTRY/$ECR_REPOSITORY:latest
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
-
-      # Deploy to ECS - API
-      - name: Deploy housing-api-service
-        run: |
-          aws ecs update-service \
-            --cluster gifted-turtle-q2yqcz \
-            --service housing-api-service-service-357gkge9 \
-            --force-new-deployment
+      
 
       # Deploy to ECS - Streamlit
       - name: Deploy housing-streamlit-service
@@ -62,3 +55,13 @@ jobs:
             --cluster gifted-turtle-q2yqcz \
             --service housing-streamlit-service-service-llg4490g \
             --force-new-deployment
+            
+      # Deploy to ECS - API
+      - name: Deploy housing-api-service
+        run: |
+          aws ecs update-service \
+            --cluster gifted-turtle-q2yqcz \
+            --service housing-api-service-service-357gkge9 \
+            --force-new-deployment
+
+      
